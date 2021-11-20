@@ -7,25 +7,25 @@ import java.util.Scanner;
 public class Scores {
 
     public static int MAX_NUM = 100;
-    public static int average(int[] array, int num) {
+    public static int average(int[] arr) {
         int sum = 0;
-        for (int i = 0; i < 10; i++) {
-            sum += array[i];
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
-        return sum / num;
+        return sum / arr.length;
     }
-    public static int biggerScores(int[] arr, int avg, int size) {
+    public static int biggerScores(int[] arr, int avg) {
         int count = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] >= avg) {
                 count++;
             }
         }
         return count;
     }
-    public static int smallerScores(int[] arr, int avg, int size) {
+    public static int smallerScores(int[] arr, int avg) {
         int count = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] < avg) 
                 count++;
         }
@@ -47,9 +47,9 @@ public class Scores {
             }
         } while (n > 0);
         i--;
-        int avg = average(arr, i);
-        System.out.println("The scores are above or equal to the average " + biggerScores(arr, avg, i));
-        System.out.println("The scores are below the average " + smallerScores(arr, avg, i));
+        int avg = average(arr);
+        System.out.println("The scores are above or equal to the average " + biggerScores(arr, avg));
+        System.out.println("The scores are below the average " + smallerScores(arr, avg));
     }
 
 }
