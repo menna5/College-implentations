@@ -24,8 +24,6 @@ public:
     void delete_position(int pos);
     void delete_data();
     void display();
-    void create_one_node();
-    bool one_node();
     bool empty();
 };
 node *new_node(int value)
@@ -39,10 +37,6 @@ node *new_node(int value)
 bool Doubly ::empty()
 {
     return start == NULL;
-}
-bool Doubly ::one_node()
-{
-    return last->pre == NULL || start->next == NULL;
 }
 void Doubly ::insert_first(int value)
 {
