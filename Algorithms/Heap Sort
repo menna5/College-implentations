@@ -1,0 +1,59 @@
+// MAX Heap
+#include <iostream>
+using namespace std;
+void heap_sort (int arr[], int size);
+void heapify(int arr[], int size, int node);
+void build_heap(int arr[], int size);
+void display(int arr[], int size);
+int main ()
+{
+    int arr[8] = {11, 2, 7, 6, 1, 20, 3, 5};
+    display(arr, 8);
+    heap_sort(arr, 8);
+    display(arr, 8);
+    return 0;
+}
+void heap_sort(int arr[], int size)
+{
+    build_heap(arr, size);
+    for (int i = size - 1; i >= 1; i--)
+    {
+        swap(arr[0], arr[i]);
+        size--;
+        heapify(arr, size, 0);
+    }
+}
+void build_heap(int arr[], int size)
+{
+    for (int i = size/2 - 1; i >= 0; i--)
+    {
+        heapify(arr, size, i);
+    }
+}
+void heapify(int arr[], int size, int node)
+{
+    int l = 2 * node + 1;
+    int r = 2 * node + 2;
+    int max = node;
+    if (arr[l] > arr[max] && l < size)
+    {
+        max = l;
+    }
+    if (arr[r] > arr[max] && r < size)
+    {
+        max = r;
+    }
+    if (max != node)
+    {
+        swap(arr[node], arr[max]);
+        heapify(arr, size, max);
+    }
+}
+void display(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
